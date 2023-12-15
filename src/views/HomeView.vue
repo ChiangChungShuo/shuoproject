@@ -4,11 +4,11 @@
     <nav>
       <ul>
         <li><router-link to="/computer">第二個切版</router-link></li>
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#gallery">GALLERY</a></li>
-        <li><a href="#contacts1">CONTACTS</a></li>
-        <li><a href="#contacts2">CONTACTS</a></li>
-        <li><a href="#contacts3">CONTACTS</a></li>
+        <li><router-link to="/computer">HOME</router-link></li>
+        <li><router-link to="/computer">GALLERY</router-link></li>
+        <li><router-link to="/computer">CONTACTS</router-link></li>
+        <li><router-link to="/computer">CONTACTS</router-link></li>
+        <li><router-link to="/computer">CONTACTS</router-link></li>
       </ul>
     </nav>
     <a href="#"><img class="icon" src="../components/icons/menu.png" alt="" /></a>
@@ -148,32 +148,36 @@ button:hover {
   background-color: #000;
   border: 4px solid #fff;
 }
+
 @media (max-width: 768px) {
   header {
     flex-direction: column;
-    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
   }
 
   nav ul li {
-    padding: 10px 0;
+    padding: 0;
   }
+
+  .icon {
+    margin-top: 10px;
+  }
+
   .img-left,
   .img-right {
-    margin: 0;
+    margin: 20px 0; 
   }
 
   .content,
   .content-left {
     text-align: center;
-    padding-right: 20px;
-    padding-left: 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    padding: 20px; 
   }
 
-  .content-left {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 }
+
 </style>

@@ -3,12 +3,13 @@
     <ul class="sidebar">
       <li><img src="../components/icons/logo.png" alt="" class="icon" /></li>
       <li><router-link to="/">第一個切版</router-link></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#projects">Learn</a></li>
-      <li><a href="#about">Clone me</a></li>
-      <li><a href="#contact">Find me</a></li>
+      <li><router-link to="/">Blog</router-link></li>
+      <li><router-link to="/">Learn</router-link></li>
+      <li><router-link to="/">Clone me</router-link></li>
+      <li><router-link to="/">Find me</router-link></li>
     </ul>
   </header>
+  <div class="container">
   <div class="banner">
     <div class="banner-text">
       <h1>
@@ -49,6 +50,14 @@
         :spaceBetween="20"
         :slides-per-view="2"
         :modules="modules"
+         :breakpoints="{
+    320: {
+      slidesPerView: 1
+    },
+    768: {
+      slidesPerView: 2
+    }
+  }"
       >
         <swiper-slide>
           <div class="project">
@@ -137,6 +146,7 @@
       </swiper>
     </div>
   </footer>
+  </div>
 </template>
 
 <script>
@@ -155,6 +165,12 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 0 20px; 
+  position: relative;
+}
 .menu {
   display: flex;
   background: #c4c4c4;
@@ -168,27 +184,31 @@ export default {
   display: flex;
   align-items: center;
 }
-.sidebar li {
-  display: inline-block;
-}
-
 .sidebar li a {
   color: #000;
   font-weight: 600;
-  display: block;
   padding: 15px 30px;
   font-size: 20px;
   display: block;
 }
+
 .banner {
   display: flex;
-  border-bottom: 4px solid #000;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  margin-top: 50px;
 }
-.banner-text{
-  padding-right: 120px;
+
+.banner::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -30px;
+  border-bottom: 4px solid #000; 
+  width: 100vw;
+  margin-left: calc(-50vw + 50%); 
 }
+
 .banner-text h1 {
   font-size: 100px;
   font-weight: 800;
@@ -199,13 +219,19 @@ export default {
   font-size: 25px;
   font-weight: 600;
   line-height: 1.2;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
+}
+.quick-links {
+  position: relative;
+  margin-top: -60px; 
+
 }
 .name {
   text-decoration: underline;
   color: #000;
   font-weight: 600;
 }
+
 .mac {
   width: 50%;
 }
@@ -221,22 +247,16 @@ button {
 button a{
   color: #000000;
 }
-.quick-links {
-  position: relative;
-  padding: 10px;
-  z-index: 1;
-  margin-top: -150px;
-  margin-left: 160px;
-}
 .quick-links h3 {
   font-weight: 700;
   font-size: 35px;
   margin-bottom: 5px;
-  margin-top: 50px;
 }
+
 .links-container {
   display: flex;
 }
+
 .link-button {
   color: #000;
   display: flex;
@@ -244,28 +264,24 @@ button a{
   padding: 15px 20px;
   font-weight: 600;
   font-size: 20px;
-  width: 20%;
-  text-align: start;
-  align-items: center;
+  width: 25%;
   justify-content: space-between;
   margin-left: -4px;
 }
+
 footer {
   position: relative;
-  margin-bottom: 100px;
+  margin: 60px 0;
 }
 footer h2 {
   font-size: 80px;
   font-weight: 700;
-  margin-left: 160px;
 }
-.projects{
-  margin-left: 60px;
-}
+
 .project {
   border: 4px solid #000;
   box-shadow: 8px 8px 0 0 #000;
-  margin-left: 100px;
+  margin-top:10px;
 }
 .fake {
   width: 100%;
@@ -316,10 +332,6 @@ button:hover, .link-button:hover {
   background-color: #999; 
 }
 @media (max-width: 768px) {
-  .menu {
-    flex-direction: column;
-    align-items: center;
-  }
   .sidebar{
     width: 100%;
     justify-content: center;
@@ -329,7 +341,10 @@ button:hover, .link-button:hover {
     width: 100%;
     text-align: center; 
   }
-
+ .sidebar li a {
+    padding: 0;
+    text-align: center; 
+  }
   .banner {
     flex-direction: column;
   }
@@ -341,6 +356,10 @@ button:hover, .link-button:hover {
   .icon {
     margin: 0 auto; 
   }
+  .bannner{
+   margin-top: 0;
+  }
+  
   .banner h1 {
     font-size: 50px
   }
@@ -360,72 +379,42 @@ button:hover, .link-button:hover {
 
   .links-container {
     justify-content: space-around;
+    flex-wrap: wrap;
   }
 
   .link-button {
-    flex: 1 0 auto; 
-    margin: 0px; 
-    min-width: 120px; 
+    flex: 1 0 auto;
+    margin: 0px;
+    min-width: 150px;
     font-size: 15px;
   }
 
   .quick-links h3 {
     font-size: 30px;
-    text-align: center; 
-    margin-top: 0;
-  }
-
-
- footer {
-    margin-bottom: 50px;
-  }
-
-  footer h2 {
-    font-size: 50px;
-    margin-left: 20px; 
-  }
-
-  .projects {
-    margin-left: 20px; 
-  }
-
-  .project {
-    margin-left: 0;
-    margin-top: 20px; 
-  }
-
-}
-@media (max-width: 480px) {
-  .banner-text {
-    padding-right: 20px; 
-  }
-  .banner h1 {
-    font-size: 30px;
-  }
-  .quick-links h3 {
-    font-size: 20px;
-  }
-  .subhead {
-    font-size: 16px;
-  }
-
-  .quick-links h3, .modal-body h3 {
-    font-size: 25px;
-  }
-
-  .modal-body p {
-    font-size: 16px;
-  }
-}
-footer h2 {
-    font-size: 35px; 
   }
 
   .modal-body h3 {
     font-size: 20px;
   }
-
   .modal-body p {
     font-size: 16px;
   }
+
+  footer h2 {
+    font-size: 40px;
+  }
+
+  .modal-body h3 {
+    font-size: 18px;
+  }
+
+  .modal-body p {
+    font-size: 14px; 
+  }
+
+  .banner::after{
+    display: none;
+  }
+}
+
 </style>
