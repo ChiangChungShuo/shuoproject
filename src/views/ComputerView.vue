@@ -10,7 +10,7 @@
     </ul>
   </header>
   <div class="banner">
-    <div>
+    <div class="banner-text">
       <h1>
         Hello.
         <br />
@@ -25,8 +25,7 @@
     </div>
     <img class="mac" src="../components/icons/computer.png" alt="" />
   </div>
-  <div class="container">
-  <section class="quick-links container">
+  <section class="quick-links">
     <h3>Quick links</h3>
     <div class="links-container">
       <button class="link-button">
@@ -43,7 +42,7 @@
       </button>
     </div>
   </section>
-  <footer class="container">
+  <footer>
     <h2>Projects</h2>
     <div class="projects">
       <swiper
@@ -135,66 +134,9 @@
             </div>
           </div>
         </swiper-slide>
-        <swiper-slide>
-          <div class="project">
-            <div class="modal-header">
-              <div class="button-circles">
-                <img src="../components/icons/radio.png" alt="" />
-                <img src="../components/icons/radio.png" alt="" />
-              </div>
-              <div class="title">
-                <div>2020-04-08-project.html</div>
-              </div>
-            </div>
-            <div>
-              <img class="fake" src="https://fakeimg.pl/500x200/ff0010" />
-            </div>
-            <div class="modal-body">
-              <h3>Dolorum Ullam Totam</h3>
-              <p>
-                Consequatur consequatur et quisquam sit velit. Distinctio perferendis sint
-                omnis. Vitae et sint repellendus consequatur cumque ducimus eos atque.
-                Eligendi cupiditate praesentium est dolore qui et. Iure non minima
-                architecto laudantium asperiores.
-              </p>
-              <button>
-                <a href="#" class="button">View project</a>
-              </button>
-            </div>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="project">
-            <div class="modal-header">
-              <div class="button-circles">
-                <img src="../components/icons/radio.png" alt="" />
-                <img src="../components/icons/radio.png" alt="" />
-              </div>
-              <div class="title">
-                <div>2020-04-08-project.html</div>
-              </div>
-            </div>
-            <div>
-              <img class="fake" src="https://fakeimg.pl/500x200/ff0010" />
-            </div>
-            <div class="modal-body">
-              <h3>Dolorum Ullam Totam</h3>
-              <p>
-                Consequatur consequatur et quisquam sit velit. Distinctio perferendis sint
-                omnis. Vitae et sint repellendus consequatur cumque ducimus eos atque.
-                Eligendi cupiditate praesentium est dolore qui et. Iure non minima
-                architecto laudantium asperiores.
-              </p>
-              <button>
-                <a href="#" class="button">View project</a>
-              </button>
-            </div>
-          </div>
-        </swiper-slide>
       </swiper>
     </div>
   </footer>
-</div>
 </template>
 
 <script>
@@ -213,10 +155,6 @@ export default {
 </script>
 
 <style scoped>
-.container{
-  max-width:1920px;
-  margin: 0 auto;
-}
 .menu {
   display: flex;
   background: #c4c4c4;
@@ -247,9 +185,11 @@ export default {
   border-bottom: 4px solid #000;
   justify-content: center;
   align-items: center;
-
 }
-.banner h1 {
+.banner-text{
+  padding-right: 120px;
+}
+.banner-text h1 {
   font-size: 100px;
   font-weight: 800;
   margin-bottom: 12px;
@@ -272,27 +212,27 @@ export default {
 
 button {
   background: #c4c4c4;
-  color: #000000;
   padding: 16px 24px;
   cursor: pointer;
   border: 4px solid #000;
   font-weight: 600;
   font-size: 18px;
 }
+button a{
+  color: #000000;
+}
 .quick-links {
   position: relative;
   padding: 10px;
   z-index: 1;
-  margin-top: -100px;
+  margin-top: -150px;
   margin-left: 160px;
-
-
 }
 .quick-links h3 {
   font-weight: 700;
   font-size: 35px;
   margin-bottom: 5px;
-  text-align: start;
+  margin-top: 50px;
 }
 .links-container {
   display: flex;
@@ -340,7 +280,7 @@ footer h2 {
   text-align: center;
 }
 .button-circles {
-  margin-right: auto; /* Push the .button-circles to the left */
+  margin-right: auto;
 }
 .title {
   font-weight: 600;
@@ -368,28 +308,39 @@ footer h2 {
   font-size: 20px;
 }
 .sidebar li a:hover, .name:hover {
-  color: #555;
+  background-color: #999; 
+
 }
 
-/* button 的 hover 效果 */
 button:hover, .link-button:hover {
   background-color: #999; 
-  color: #fff;
 }
 @media (max-width: 768px) {
   .menu {
     flex-direction: column;
+    align-items: center;
   }
-
+  .sidebar{
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
   .sidebar li {
-    display: block;
-    text-align: center;
+    width: 100%;
+    text-align: center; 
   }
 
   .banner {
     flex-direction: column;
   }
-
+  .banner-text {
+    padding: 0 60px; 
+    margin-top: 30px;
+    text-align: center;
+  }
+  .icon {
+    margin: 0 auto; 
+  }
   .banner h1 {
     font-size: 50px
   }
@@ -399,34 +350,61 @@ button:hover, .link-button:hover {
   }
 
   .mac {
-    width: 100%;
-    margin-top: 20px;
+    width: 80%;
+    margin: 0 auto;
   }
-
   .quick-links {
     margin-left: 0;
-    margin-top: 20px;
+    margin-top: 0px;
+  }
+
+  .links-container {
+    justify-content: space-around;
   }
 
   .link-button {
-    width: 100%;
-    margin-left: 0;
+    flex: 1 0 auto; 
+    margin: 0px; 
+    min-width: 120px; 
+    font-size: 15px;
+  }
+
+  .quick-links h3 {
+    font-size: 30px;
+    text-align: center; 
+    margin-top: 0;
+  }
+
+
+ footer {
+    margin-bottom: 50px;
+  }
+
+  footer h2 {
+    font-size: 50px;
+    margin-left: 20px; 
   }
 
   .projects {
-    margin-left: 0;
+    margin-left: 20px; 
   }
 
   .project {
     margin-left: 0;
-    margin-top: 20px;
-  }
-}
-@media (max-width: 480px) {
-  .banner h1 {
-    font-size: 35px;
+    margin-top: 20px; 
   }
 
+}
+@media (max-width: 480px) {
+  .banner-text {
+    padding-right: 20px; 
+  }
+  .banner h1 {
+    font-size: 30px;
+  }
+  .quick-links h3 {
+    font-size: 20px;
+  }
   .subhead {
     font-size: 16px;
   }
@@ -439,4 +417,15 @@ button:hover, .link-button:hover {
     font-size: 16px;
   }
 }
+footer h2 {
+    font-size: 35px; 
+  }
+
+  .modal-body h3 {
+    font-size: 20px;
+  }
+
+  .modal-body p {
+    font-size: 16px;
+  }
 </style>

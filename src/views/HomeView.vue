@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1><a href="#">FUEGO.</a> </h1>
+    <h1><a href="#">FUEGO.</a></h1>
     <nav>
       <ul>
         <li><router-link to="/computer">第二個切版</router-link></li>
@@ -11,7 +11,7 @@
         <li><a href="#contacts3">CONTACTS</a></li>
       </ul>
     </nav>
-    <img class="icon" src="../components/icons/menu.png" alt="" />
+    <a href="#"><img class="icon" src="../components/icons/menu.png" alt="" /></a>
   </header>
   <section class="block">
     <div>
@@ -58,7 +58,7 @@
 <script setup></script>
 
 <style scoped>
-a{
+a {
   color: #000;
 }
 header {
@@ -82,11 +82,10 @@ nav ul {
 }
 li {
   padding: 0 20px;
-
 }
-li a:hover{
-color: red;
-display: block;
+li a:hover {
+  color: red;
+  display: block;
 }
 .icon {
   width: 30px;

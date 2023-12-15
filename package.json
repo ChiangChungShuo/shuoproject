@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist",
+    "": "npm run build && gh-pages -d dist",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
